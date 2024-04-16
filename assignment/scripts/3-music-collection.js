@@ -1,25 +1,33 @@
 console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
-const myCollection = [];
+let myCollection = [];
 
 //Not passing test
 function addToCollection(collection, title, artist, yearPublished) {
-  let scottsCollection = {
+  const record = {
+    collection,
     title,
     artist,
     yearPublished};
-  myCollection.push(scottsCollection);
-  return scottsCollection;
+  collection.push(record);
+  return record;
 }
 
-addToCollection('Nevermind', 'Nirvana', 1991);
-addToCollection('compact disc', 'Ten', 'Pearl Jam', 1991);
-addToCollection('cassette', 'The Chronic', 'Dr. Dre', 1992);
-addToCollection('compact disc', 'Ready to Die', 'The Notorious B.I.G.', 1994);
-addToCollection('record', 'Achtung Baby', 'U2', 1991);
-addToCollection('cassette', 'Ok Computer', 'Radiohead', 1997);
+function showCollection(collection) {
+  for (let i = 0; i < collection.length; i++) {
+    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
+  }
+}
+
+console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991));
+console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991));
+console.log(addToCollection(myCollection, 'The Chronic', 'Dr. Dre', 1992));
+console.log(addToCollection(myCollection, 'Ready to Die', 'The Notorious B.I.G.', 1994));
+console.log(addToCollection(myCollection, 'Achtung Baby', 'U2', 1991));
+console.log(addToCollection(myCollection, 'Ok Computer', 'Radiohead', 1997));
 
 console.log(myCollection);
+showCollection(myCollection);
 
 
 
