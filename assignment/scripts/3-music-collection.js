@@ -1,6 +1,6 @@
 console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
-let myCollection = [];
+const myCollection = [];
 
 function addToCollection(collection, title, artist, yearPublished) {
   const record = {
@@ -19,17 +19,58 @@ function showCollection(collection) {
 }
 
 // Will not show all albums by specific artist and says artists that are in collection are not.
-let albumArray = [];
+let artistArray = [];
 function findByArtist(collection, artist) {
-  for (let x = 0; x < collection.length; x++){
-    if (artist === collection[x].artist) {
-      albumArray.push(collection[x]);
-      return albumArray;
-    } else {
-      return `${artist} not in collection`;
+  for (let i = 0; i < collection.length; i++){
+    for (let artist in collection[i]) {
+      if (collection[i].artist === artist) {
+       artistArray.push(collection[i]);
+        return artistArray;
+     } else {
+        return `${artist} not in collection`;
+      }
     }
-  }
+  }  
 }
+
+//Using .filter and .some
+// function findByArtist(collection, artist) {
+//   return collection.filter(function(record) {
+//     return Object.keys(record).some(function(key) {
+//       return record[key] === artist;
+//     })
+//   });
+// }
+
+// Using arrow functions
+// function findByArtist(collection, artist) {
+//   return collection.filter(record => Object.keys(record).some(key => record[key] === artist));
+// }
+
+// Would like to figure out how to incorporate .push to create a new artistArray
+// artistArray.push(collection.artist);
+// return artistArray;
+
+// Stretch Goal
+
+// let albumArray = [];
+// let searchCriteria = { artist: 'Ray Charles', year: 1957 }
+// function search(collection, searchCriteria) {
+//   for (let i = 0; i < collection.length; i++) {
+//     for(key in collection[i]) {
+//       if (collection[i][key].indexOf(toSearch)!== -1) {
+//         results.push(collection[i]);
+//       }
+//     }
+//   }
+// }
+
+// function search(collection, searchCriteria) {
+//   return collection.filter(searchCriteria
+//     ? a => a[searchCriteria] === value 
+//     : a => Object.keys(a).some(k => a[k] === value)
+//   );
+// }
 
 
 console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991));
@@ -42,10 +83,12 @@ console.log(addToCollection(myCollection, 'In Utero', 'Nirvana', 1993));
 
 console.log(myCollection);
 
-showCollection(myCollection);
+// showCollection(myCollection);
 console.log(findByArtist(myCollection, 'Nirvana'));
 console.log(findByArtist(myCollection, 'U2'));
+console.log(findByArtist(myCollection, 'Tom Petty'));
 
+// console.log(search(myCollection, searchCriteria));
 
 
 
