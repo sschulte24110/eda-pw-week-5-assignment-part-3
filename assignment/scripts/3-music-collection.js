@@ -18,19 +18,16 @@ function showCollection(collection) {
   }
 }
 
-// Will not show all albums by specific artist and says artists that are in collection are not.
-let artistArray = [];
+
 function findByArtist(collection, artist) {
+  let artistArray = [];
   for (let i = 0; i < collection.length; i++){
-    for (let artist in collection[i]) {
-      if (collection[i].artist === artist) {
-       artistArray.push(collection[i]);
-        return artistArray;
-     } else {
-        return `${artist} not in collection`;
-      }
-    }
+    if (collection[i].artist === artist) {
+      artistArray.push(collection[i])
+    } 
   }  
+  console.log('Find by Artist:', artistArray);
+  return artistArray;
 }
 
 //Using .filter and .some
@@ -41,20 +38,19 @@ function findByArtist(collection, artist) {
 //     })
 //   });
 // }
+// function findByArtist(collection, artist) {
+//   return collection.filter((album) => album.artist === artist);
+// }
 
 // Using arrow functions
 // function findByArtist(collection, artist) {
 //   return collection.filter(record => Object.keys(record).some(key => record[key] === artist));
 // }
 
-// Would like to figure out how to incorporate .push to create a new artistArray
-// artistArray.push(collection.artist);
-// return artistArray;
-
 // Stretch Goal
 
 // let albumArray = [];
-// let searchCriteria = { artist: 'Ray Charles', year: 1957 }
+// let searchCriteria = { artist: 'Ray Charles', yearPublished: 1957 }
 // function search(collection, searchCriteria) {
 //   for (let i = 0; i < collection.length; i++) {
 //     for(key in collection[i]) {
@@ -85,8 +81,8 @@ console.log(myCollection);
 
 // showCollection(myCollection);
 console.log(findByArtist(myCollection, 'Nirvana'));
-console.log(findByArtist(myCollection, 'U2'));
-console.log(findByArtist(myCollection, 'Tom Petty'));
+console.log(findByArtist(myCollection, 'U2')?.length > 0 ? 'found': 'Artist not found');
+console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
 
 // console.log(search(myCollection, searchCriteria));
 
