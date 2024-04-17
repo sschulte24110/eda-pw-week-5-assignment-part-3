@@ -26,7 +26,7 @@ function findByArtist(collection, artist) {
       artistArray.push(collection[i])
     } 
   }  
-  console.log('Find by Artist:', artistArray);
+  // console.log('Find by Artist:', artistArray);
   return artistArray;
 }
 
@@ -49,17 +49,22 @@ function findByArtist(collection, artist) {
 
 // Stretch Goal
 
-// let albumArray = [];
-// let searchCriteria = { artist: 'Ray Charles', yearPublished: 1957 }
-// function search(collection, searchCriteria) {
-//   for (let i = 0; i < collection.length; i++) {
-//     for(key in collection[i]) {
-//       if (collection[i][key].indexOf(toSearch)!== -1) {
-//         results.push(collection[i]);
-//       }
-//     }
-//   }
-// }
+let searchCriteria = { artist: 'Pearl Jam', year: 1991 };
+function search(collection, searchCriteria) {
+  let albumArray = [];
+  // Look in to finding how to add empty search object.
+  if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
+    return collection;
+  }
+  for (let i = 0; i < collection.length; i++) {
+      if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
+        albumArray.push(collection[i]);
+      } 
+      
+    }
+    return albumArray;
+  }
+
 
 // function search(collection, searchCriteria) {
 //   return collection.filter(searchCriteria
@@ -76,15 +81,17 @@ console.log(addToCollection(myCollection, 'Ready to Die', 'The Notorious B.I.G.'
 console.log(addToCollection(myCollection, 'Achtung Baby', 'U2', 1991));
 console.log(addToCollection(myCollection, 'Ok Computer', 'Radiohead', 1997));
 console.log(addToCollection(myCollection, 'In Utero', 'Nirvana', 1993));
+console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
+
 
 console.log(myCollection);
 
 // showCollection(myCollection);
-console.log(findByArtist(myCollection, 'Nirvana'));
-console.log(findByArtist(myCollection, 'U2')?.length > 0 ? 'found': 'Artist not found');
-console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
+// console.log(findByArtist(myCollection, 'Nirvana'));
+// console.log(findByArtist(myCollection, 'U2')?.length > 0 ? 'found': 'Artist not found');
+// console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
 
-// console.log(search(myCollection, searchCriteria));
+console.log(search(myCollection, searchCriteria));
 
 
 
