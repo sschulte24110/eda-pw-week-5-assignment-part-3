@@ -157,42 +157,45 @@ function findByArtist(collection, artist) {
 // }
 
 // Stretch Goal - Search Function
-let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
-function search(collection, searchCriteria) {
-  let albumArray = [];
-  // Look in to finding how to add empty search object.
-  if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
-    return collection;
-  }
-  for (let i = 0; i < collection.length; i++) {
-      if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
-        albumArray.push(collection[i]);
-      }  
-  }
-  return albumArray;
-}
-// Extra Stretchy - Search Function
-// let searchCriteria = { artist: 'Garth Brooks', year: 1995, track: 'Ireland' };
+// let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
 // function search(collection, searchCriteria) {
 //   let albumArray = [];
 //   // Look in to finding how to add empty search object.
-//   for (let i = 0; i < collection.length; i++) {
-//     if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
-//       albumArray.push(collection[i]);
-//       console.log(albumArray);
-//       for (let j = 0; j < albumArray.tracks.length; j++) {
-//         let trackArray = [];
-//         if (albumArray.track.name === searchCriteria.track) {
-//           trackArray.push(albumArray.track.name);
-//         }  
-//       }
-//       return trackArray;  
-//     }  
+//   if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
+//     return collection;
 //   }
-//   // return albumArray;
+//   for (let i = 0; i < collection.length; i++) {
+//       if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
+//         albumArray.push(collection[i]);
+//       }  
+//   }
+//   return albumArray;
 // }
+// Extra Stretchy - Search Function
+let searchCriteria = { artist: 'Garth Brooks', year: 1995, name: 'The Fever' };
 
+function search(collection, searchCriteria) {
+  for (let i = 0; i < collection.length; i++) {
+      console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+    for (let track of collection[i].tracks) {
+      console.log(track);
+      if (track.name === searchCriteria.name) {
+        return track.name;
+      }  
+    }
+  }  
+}
 
+// Add To Collection
+// console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991));
+// console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991));
+// console.log(addToCollection(myCollection, 'Odelay', 'Beck', 1992));
+// console.log(addToCollection(myCollection, 'Brand New Man', 'Brooks & Dunn', 1991));
+// console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990));
+// console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995);
+// console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
+
+//Extra Stretchy addToCollection
 // console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks));
 // console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks));
 // console.log(addToCollection(myCollection, 'Odelay', 'Beck', 1992, odelayTracks));
@@ -200,7 +203,6 @@ function search(collection, searchCriteria) {
 // console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990, noFencesTracks));
 // console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesTracks);
 // console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957, unknownTracks));
-
 addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks);
 addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks);
 addToCollection(myCollection, 'Odelay', 'Beck', 1996, odelayTracks);
@@ -210,12 +212,12 @@ addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesT
 
 console.log(myCollection);
 
-showCollection(myCollection);
+// showCollection(myCollection);
 // console.log(findByArtist(myCollection, 'Nirvana'));
-// console.log(findByArtist(myCollection, 'Garth Brooks')?.length > 0 ? 'found': 'Artist not found');
+// console.log(findByArtist(myCollection, 'Garth Brooks')
 // console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
 
-// console.log(search(myCollection, searchCriteria));
+console.log(search(myCollection, searchCriteria));
 
 
 
