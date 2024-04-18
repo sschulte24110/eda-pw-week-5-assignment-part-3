@@ -123,7 +123,14 @@ function showCollection(collection) {
 // Extra Stretchy Show Collection ********Not displaying the track array correctly*******
 // function showCollection(collection) {
 //   for (let i = 0; i < collection.length; i++) {
-//     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}: ${collection[i].tracks}`);
+//         console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+//     for (let track of collection[i].tracks) {
+//       console.log(`\t${track.number}. ${track.name}: ${track.duration}`);
+//     }
+//     // console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}: ${collection[i].tracks}`);
+//     // console.log(collection[i].title + ' by ' + collection[i].artist + ', published in ' + collection[i].yearPublished + ': ' + JSON.stringify(collection[i].tracks));
+//     // const trackListings = collection[i].map(item => item.tracks);
+    
 //   }
 // }
 
@@ -164,27 +171,30 @@ function search(collection, searchCriteria) {
   for (let i = 0; i < collection.length; i++) {
       if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
         albumArray.push(collection[i]);
-      } 
-      
-    }
-    return albumArray;
+      }  
   }
+  return albumArray;
+}
 // Extra Stretchy - Search Function
-//   let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
+// let searchCriteria = { artist: 'Garth Brooks', year: 1995, track: 'Ireland' };
 // function search(collection, searchCriteria) {
 //   let albumArray = [];
 //   // Look in to finding how to add empty search object.
-//   if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
-//     return collection;
-//   }
 //   for (let i = 0; i < collection.length; i++) {
-//       if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
-//         albumArray.push(collection[i]);
-//       } 
-      
-//     }
-//     return albumArray;
+//     if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
+//       albumArray.push(collection[i]);
+//       console.log(albumArray);
+//       for (let j = 0; j < albumArray.tracks.length; j++) {
+//         let trackArray = [];
+//         if (albumArray.track.name === searchCriteria.track) {
+//           trackArray.push(albumArray.track.name);
+//         }  
+//       }
+//       return trackArray;  
+//     }  
 //   }
+//   // return albumArray;
+// }
 
 // function search(collection, searchCriteria) {
 //   return collection.filter(searchCriteria
@@ -211,7 +221,7 @@ addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesT
 
 console.log(myCollection);
 
-// showCollection(myCollection);
+showCollection(myCollection);
 // console.log(findByArtist(myCollection, 'Nirvana'));
 // console.log(findByArtist(myCollection, 'Garth Brooks')?.length > 0 ? 'found': 'Artist not found');
 // console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
