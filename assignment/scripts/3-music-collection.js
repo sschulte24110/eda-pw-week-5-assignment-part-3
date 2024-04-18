@@ -92,43 +92,43 @@ const freshHorsesTracks = [
 ];
 
 // Add to Collection
-// function addToCollection(collection, title, artist, yearPublished) {
-//   const record = {
-//     collection,
-//     title,
-//     artist,
-//     yearPublished,
-//   };
-//   collection.push(record);
-//   return record;
-// }
-// Extra Stretchy Add to Collection
-function addToCollection(collection, title, artist, yearPublished, tracks) {
+function addToCollection(collection, title, artist, yearPublished) {
   const record = {
     collection,
     title,
     artist,
     yearPublished,
-    tracks};
+  };
   collection.push(record);
   return record;
 }
+// Extra Stretchy Add to Collection
+// function addToCollection(collection, title, artist, yearPublished, tracks) {
+//   const record = {
+//     collection,
+//     title,
+//     artist,
+//     yearPublished,
+//     tracks};
+//   collection.push(record);
+//   return record;
+// }
 
 // Show Collection
-// function showCollection(collection) {
-//   for (let i = 0; i < collection.length; i++) {
-//     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
-//   }
-// }
-// Extra Stretchy Show Collection 
 function showCollection(collection) {
   for (let i = 0; i < collection.length; i++) {
-        console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
-    for (let track of collection[i].tracks) {
-      console.log(`\t${track.number}. ${track.name}: ${track.duration}`);
-    }
+    console.log(`"${collection[i].title}" by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
   }
 }
+// Extra Stretchy Show Collection 
+// function showCollection(collection) {
+//   for (let i = 0; i < collection.length; i++) {
+//         console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+//     for (let track of collection[i].tracks) {
+//       console.log(`\t${track.number}. ${track.name}: ${track.duration}`);
+//     }
+//   }
+// }
 
 // Find By Artist
 function findByArtist(collection, artist) {
@@ -157,43 +157,43 @@ function findByArtist(collection, artist) {
 // }
 
 // Stretch Goal - Search Function
-// let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
-// function search(collection, searchCriteria) {
-//   let albumArray = [];
-//   // Look in to finding how to add empty search object.
-//   if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
-//     return collection;
-//   }
-//   for (let i = 0; i < collection.length; i++) {
-//       if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
-//         albumArray.push(collection[i]);
-//       }  
-//   }
-//   return albumArray;
-// }
-// Extra Stretchy - Search Function
-let searchCriteria = { artist: 'Garth Brooks', year: 1995, name: 'The Fever' };
-
+let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
 function search(collection, searchCriteria) {
+  let albumArray = [];
+  // Look in to finding how to add empty search object.
+  if (!searchCriteria || Object.keys(searchCriteria).length === 0 || !searchCriteria.artist || !searchCriteria.year) {
+    return collection;
+  }
   for (let i = 0; i < collection.length; i++) {
-      console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
-    for (let track of collection[i].tracks) {
-      console.log(track);
-      if (track.name === searchCriteria.name) {
-        return track.name;
+      if (collection[i].artist === searchCriteria.artist && collection[i].yearPublished === searchCriteria.year) {
+        albumArray.push(collection[i]);
       }  
-    }
-  }  
+  }
+  return albumArray;
 }
+// Extra Stretchy - Search Function
+// let searchCriteria = { artist: 'Garth Brooks', year: 1995, name: 'The Fever' };
+
+// function search(collection, searchCriteria) {
+//   for (let i = 0; i < collection.length; i++) {
+//       console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+//     for (let track of collection[i].tracks) {
+//       console.log(track);
+//       if (track.name === searchCriteria.name) {
+//         return track.name;
+//       }  
+//     }
+//   }  
+// }
 
 // Add To Collection
-// console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991));
-// console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991));
-// console.log(addToCollection(myCollection, 'Odelay', 'Beck', 1992));
-// console.log(addToCollection(myCollection, 'Brand New Man', 'Brooks & Dunn', 1991));
-// console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990));
-// console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995);
-// console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
+console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991));
+console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991));
+console.log(addToCollection(myCollection, 'Odelay', 'Beck', 1992));
+console.log(addToCollection(myCollection, 'Brand New Man', 'Brooks & Dunn', 1991));
+console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990));
+console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995));
+console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
 
 //Extra Stretchy addToCollection
 // console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks));
@@ -203,19 +203,20 @@ function search(collection, searchCriteria) {
 // console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990, noFencesTracks));
 // console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesTracks);
 // console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957, unknownTracks));
-addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks);
-addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks);
-addToCollection(myCollection, 'Odelay', 'Beck', 1996, odelayTracks);
-addToCollection(myCollection, 'Brand New Man', 'Brooks & Dunn', 1991, brandNewManTracks);
-addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990, noFencesTracks);
-addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesTracks);
+// addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks);
+// addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks);
+// addToCollection(myCollection, 'Odelay', 'Beck', 1996, odelayTracks);
+// addToCollection(myCollection, 'Brand New Man', 'Brooks & Dunn', 1991, brandNewManTracks);
+// addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990, noFencesTracks);
+// addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesTracks);
 
 console.log(myCollection);
 
-// showCollection(myCollection);
-// console.log(findByArtist(myCollection, 'Nirvana'));
-// console.log(findByArtist(myCollection, 'Garth Brooks')
-// console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'found': 'Artist not found');
+showCollection(myCollection);
+
+console.log(findByArtist(myCollection, 'Nirvana')?.length > 0 ? 'Artist found.' : 'Artist not found');
+console.log(findByArtist(myCollection, 'Garth Brooks')?.length > 0 ? 'Artist found' : 'Artist not found');
+console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'Artist found' : 'Artist not found');
 
 console.log(search(myCollection, searchCriteria));
 
