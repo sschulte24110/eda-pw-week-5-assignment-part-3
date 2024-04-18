@@ -92,47 +92,43 @@ const freshHorsesTracks = [
 ];
 
 // Add to Collection
-function addToCollection(collection, title, artist, yearPublished) {
-  const record = {
-    collection,
-    title,
-    artist,
-    yearPublished,
-  };
-  collection.push(record);
-  return record;
-}
-// Extra Stretchy Add to Collection
-// function addToCollection(collection, title, artist, yearPublished, tracks) {
+// function addToCollection(collection, title, artist, yearPublished) {
 //   const record = {
 //     collection,
 //     title,
 //     artist,
 //     yearPublished,
-//     tracks};
+//   };
 //   collection.push(record);
 //   return record;
 // }
+// Extra Stretchy Add to Collection
+function addToCollection(collection, title, artist, yearPublished, tracks) {
+  const record = {
+    collection,
+    title,
+    artist,
+    yearPublished,
+    tracks};
+  collection.push(record);
+  return record;
+}
 
 // Show Collection
-function showCollection(collection) {
-  for (let i = 0; i < collection.length; i++) {
-    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
-  }
-}
-// Extra Stretchy Show Collection ********Not displaying the track array correctly*******
 // function showCollection(collection) {
 //   for (let i = 0; i < collection.length; i++) {
-//         console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
-//     for (let track of collection[i].tracks) {
-//       console.log(`\t${track.number}. ${track.name}: ${track.duration}`);
-//     }
-//     // console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}: ${collection[i].tracks}`);
-//     // console.log(collection[i].title + ' by ' + collection[i].artist + ', published in ' + collection[i].yearPublished + ': ' + JSON.stringify(collection[i].tracks));
-//     // const trackListings = collection[i].map(item => item.tracks);
-    
+//     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
 //   }
 // }
+// Extra Stretchy Show Collection 
+function showCollection(collection) {
+  for (let i = 0; i < collection.length; i++) {
+        console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+    for (let track of collection[i].tracks) {
+      console.log(`\t${track.number}. ${track.name}: ${track.duration}`);
+    }
+  }
+}
 
 // Find By Artist
 function findByArtist(collection, artist) {
@@ -194,13 +190,6 @@ function search(collection, searchCriteria) {
 //     }  
 //   }
 //   // return albumArray;
-// }
-
-// function search(collection, searchCriteria) {
-//   return collection.filter(searchCriteria
-//     ? a => a[searchCriteria] === value 
-//     : a => Object.keys(a).some(k => a[k] === value)
-//   );
 // }
 
 
