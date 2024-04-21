@@ -157,7 +157,8 @@ function findByArtist(collection, artist) {
 // }
 
 // Stretch Goal - Search Function
-let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
+let searchCriteria = { artist: 'Ray Charles', year: 1957 };
+// let searchCriteria = { artist: 'Garth Brooks', year: 1995 };
 function search(collection, searchCriteria) {
   let albumArray = [];
   // Look in to finding how to add empty search object.
@@ -173,12 +174,9 @@ function search(collection, searchCriteria) {
 }
 // Extra Stretchy - Search Function
 // let searchCriteria = { artist: 'Garth Brooks', year: 1995, name: 'The Fever' };
-
 // function search(collection, searchCriteria) {
 //   for (let i = 0; i < collection.length; i++) {
-//       console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
 //     for (let track of collection[i].tracks) {
-//       console.log(track);
 //       if (track.name === searchCriteria.name) {
 //         return track.name;
 //       }  
@@ -195,7 +193,7 @@ console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990));
 console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995));
 console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
 
-//Extra Stretchy addToCollection
+// Extra Stretchy addToCollection
 // console.log(addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks));
 // console.log(addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks));
 // console.log(addToCollection(myCollection, 'Odelay', 'Beck', 1992, odelayTracks));
@@ -203,6 +201,8 @@ console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
 // console.log(addToCollection(myCollection, 'No Fences', 'Garth Brooks', 1990, noFencesTracks));
 // console.log(addToCollection(myCollection, 'Fresh Horses', 'Garth Brooks', 1995, freshHorsesTracks);
 // console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957, unknownTracks));
+
+// These are here so my console didn't have so many items being logged.
 // addToCollection(myCollection, 'Nevermind', 'Nirvana', 1991, nevermindTracks);
 // addToCollection(myCollection, 'Ten', 'Pearl Jam', 1991, tenTracks);
 // addToCollection(myCollection, 'Odelay', 'Beck', 1996, odelayTracks);
@@ -212,13 +212,18 @@ console.log(addToCollection(myCollection, 'Unknown', 'Ray Charles', 1957));
 
 console.log(myCollection);
 
+// Show Collection
 showCollection(myCollection);
 
-console.log(findByArtist(myCollection, 'Nirvana')?.length > 0 ? 'Artist found.' : 'Artist not found');
+// Find by Artist
+console.log(findByArtist(myCollection, 'Nirvana')?.length > 0 ? 'Artist found' : 'Artist not found');
 console.log(findByArtist(myCollection, 'Garth Brooks')?.length > 0 ? 'Artist found' : 'Artist not found');
 console.log(findByArtist(myCollection, 'Tom Petty')?.length > 0 ? 'Artist found' : 'Artist not found');
 
+// Stretch Goal Search Function
 console.log(search(myCollection, searchCriteria));
+// Extra Stretchy Stretch Goal Search Funciton
+// console.log(search(myCollection, searchCriteria)?.length > 0 ? `Track name found` : 'Track not found');
 
 
 
