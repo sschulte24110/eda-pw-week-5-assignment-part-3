@@ -225,8 +225,7 @@ console.log(search(myCollection, searchCriteria));
 // Extra Stretchy Stretch Goal Search Funciton
 // console.log(search(myCollection, searchCriteria)?.length > 0 ? `Track name found` : 'Track not found');
 
-
-
+console.log(myCollection);
 
 
 
